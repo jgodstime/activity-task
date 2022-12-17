@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
-Route::post('/', [App\Http\Controllers\AuthController::class, 'loginAction'])->name('login.post');
+Route::get('/', [App\Http\Controllers\Admin\AuthController::class, 'login'])->name('login');
+Route::post('/', [App\Http\Controllers\Admin\AuthController::class, 'loginAction'])->name('login.post');
 
 Route::prefix('admin')->middleware(['auth', 'is.admin'])->name('admin.')->group(function () {
     Route::prefix('activities')->name('activities.')->group(function () {

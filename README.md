@@ -51,6 +51,7 @@ Collection url: https://documenter.getpostman.com/view/8378011/2s8YzXwfpC#intro
 
 
 Create symbolic link
+
          php artisan storage:link
 
 

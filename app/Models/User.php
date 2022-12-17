@@ -18,9 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -33,6 +35,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function getFullNameAttribute()
+    {
+        return $this->first_name.' '.$this->last_name;
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -41,4 +48,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get all of the activities for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function activities()
+    {
+        return $this->hasMany(Activity::class)->latest();
+    }
 }

@@ -23,8 +23,8 @@ class ActivityService
     {
         $dateActivityCount = $this->activity->whereDate('date', $data['date'])->getGlobal()->get()->unique('activity_no')->count();
 
-        if ($dateActivityCount >= 3) {
-            return back()->with('error', "You already have a maximum of $dateActivityCount activities created for the selected date");
+        if ($dateActivityCount >= 4) {
+            return back()->with('error', "You already have a maximum of 4 activities created for the selected date");
         }
 
         $data['image'] = $data['image']->store('activity_images', 'public');

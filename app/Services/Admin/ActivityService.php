@@ -110,7 +110,7 @@ class ActivityService
         }
 
         // if this is not changed, global update will still affect this guy
-        // $data['activity_no'] = $this->activity::generateUniqueActivityNo(); // change the activity no becasuse it was upated for a user, its no longer tied to global activity
+        $data['activity_no'] = null; // Once an activity is edited for a particular user, the global changes should not affect it.
 
         if (isset($data['image']) && ! empty($data['image'])) {
             $data['image'] = $data['image']->store('activity_images', 'public');

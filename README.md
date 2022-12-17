@@ -35,8 +35,10 @@ Generate admin seeder
         php artisan db:seed --class=AdminSeeder
 
 Admin login credentials
-email: admin@gmail.com
-password: password
+
+Email: admin@gmail.com
+
+Password: password
 
 
 But if you need test users to work with, then run the command below to generate random test users

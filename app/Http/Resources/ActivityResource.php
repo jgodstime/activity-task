@@ -14,6 +14,16 @@ class ActivityResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'user' => new UserResource($this->whenLoaded('user')),
+            'title' => $this->title,
+            'description' => $this->description,
+            'is_completed' => (bool) $this->is_completed,
+            'date' =>  $this->date,
+            'activity_no' => $this->activity_no,
+            'image' => $this->image,
+            'created_at' => $this->created_at,
+        ];
     }
 }
